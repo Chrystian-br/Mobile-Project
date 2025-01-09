@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
             if(!_canRun) return;
 
             _pos = target.position;
-            _pos.y = transform.position.y;
             _pos.z = transform.position.z;
 
             transform.position = Vector3.Lerp(transform.position, _pos, lerpVelocity * Time.deltaTime);

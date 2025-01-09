@@ -9,6 +9,7 @@ public class CollectableBase : MonoBehaviour
         public string compareTag = "Player";
         
         public float animationCollectDelay = 0.5f;
+        public float timeToDestroy = 1f;
 
         public ParticleSystem pSystem;
         public GameObject floor;
@@ -23,7 +24,7 @@ public class CollectableBase : MonoBehaviour
         protected virtual void Collect()
         {
             OnCollect();
-            Invoke("AutoDestroy", 3f);
+            Invoke("AutoDestroy", timeToDestroy);
         }
 
         protected virtual void OnCollect()
@@ -43,7 +44,6 @@ public class CollectableBase : MonoBehaviour
         private void OnTriggerEnter(Collider collision)
         {
             if(collision.transform.CompareTag(compareTag)){
-                gameObject.transform.GetComponent<CircleCollider2D>().enabled = false;
 
                 Invoke(nameof(Collect),animationCollectDelay - 0.2f);
             }

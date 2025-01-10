@@ -35,7 +35,7 @@ public class TouchController : MonoBehaviour
             if(Input.GetMouseButton(0)){
                 Move(Input.mousePosition.x - pastPosition.x);
                 
-                if(Input.mousePosition.y >= pastPosition.y + 10f){
+                if(Input.mousePosition.y >= pastPosition.y + 20f){
                     Jump();
                 }
             }

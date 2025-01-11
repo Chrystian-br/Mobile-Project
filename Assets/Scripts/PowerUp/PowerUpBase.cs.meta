@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 59095f6382fc7af41a7b9e370db1edb3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pSystem: {instanceID: 0}
+  - floor: {instanceID: 0}
+  - graphicItem: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - material: {fileID: 2100000, guid: 123bdac959f052b4f893f32a3202a82f, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

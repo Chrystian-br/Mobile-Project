@@ -8,11 +8,13 @@ public class CollectableBase : MonoBehaviour
     #region VARIAVEIS
         public string compareTag = "Player";
         
-        public float animationCollectDelay = 0.5f;
-        public float timeToDestroy = 1f;
+        public float animationCollectDelay = 0f;
+        public float timeToDestroy = 10f;
 
         public ParticleSystem pSystem;
         public GameObject floor;
+
+        public GameObject graphicItem;
 
         [Header("Sounds")]
         public AudioSource audioSource;
@@ -24,6 +26,7 @@ public class CollectableBase : MonoBehaviour
         protected virtual void Collect()
         {
             OnCollect();
+            if(graphicItem != null) graphicItem.SetActive(false);
             Invoke("AutoDestroy", timeToDestroy);
         }
 

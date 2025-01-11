@@ -19,13 +19,13 @@ public class ItemsManager : Singleton<ItemsManager>
         private void Reset()
         {
             coins.count = 0;
-            kills.count = 0;
+            if(kills != null) kills.count = 0;
         }
 
         public void AddCoins(int amount = 1)
         {
             coins.count += amount;
-            // coinText.text = coins.count + " x";
+            coinText.text = coins.count + " x";
         }
 
         public void AddKills(int amount = 1)

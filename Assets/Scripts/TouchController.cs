@@ -10,8 +10,6 @@ public class TouchController : MonoBehaviour
         public float jumpForce = 5f;
 
         public Rigidbody rigidBody;
-
-        private bool _canJump;
     #endregion
      
      
@@ -23,8 +21,8 @@ public class TouchController : MonoBehaviour
 
         public void Jump()
         {
-            if(_canJump) rigidBody.velocity = Vector3.up * jumpForce;
-            _canJump = false;
+            if(PlayerController.Instance._canJump) rigidBody.velocity = Vector3.up * jumpForce;
+            PlayerController.Instance._canJump = false;
         }
     #endregion
      
@@ -45,7 +43,7 @@ public class TouchController : MonoBehaviour
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.transform.tag == "Floor"){
-                _canJump = true;
+                PlayerController.Instance._canJump = true;
             }
         }
     #endregion

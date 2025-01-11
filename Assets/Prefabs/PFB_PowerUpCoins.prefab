@@ -159,5 +159,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   duration: 2
   originalMat: {fileID: 2100000, guid: 123bdac959f052b4f893f32a3202a82f, type: 2}
+  massiveCoinMat: {fileID: 2100000, guid: f16124841d742a84c868e78955d84515, type: 2}
+  _currPowerUp: 
   coinsMat: {fileID: 2100000, guid: f35f045485f3af7458f9b2447dc73d7c, type: 2}
   sizeAmount: 7
+  massiveShoot: {fileID: 5832616070379566103, guid: 556639fbe1fc61e45864658f13291fc5, type: 3}

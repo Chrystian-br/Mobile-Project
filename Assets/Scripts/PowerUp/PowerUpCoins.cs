@@ -1,34 +1,58 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PowerUpCoins : PowerUpBase
+namespace scripts.PowerUp.PowerUpCoins
 {
-    #region VARIAVEIS
-        [Header("PowerUp Coins")]
-        public Material coinsMat;
-        public float sizeAmount = 7f;
-    #endregion
-
-
-    #region METODOS
-    protected override void StartPowerUp()
+    public class PowerUpCoins : PowerUpBase
     {
-        base.StartPowerUp();
-        PlayerController.Instance.SetPowerUp("Coins", coinsMat);
-        PlayerController.Instance.ChangeCoinCollectorSize(sizeAmount);
+        #region VARIAVEIS
+            [Header("PowerUp Coins")]
+            public Material coinsMat;
+            public float sizeAmount = 7f;
+
+            
+        #endregion
+
+
+        #region METODOS
+        protected override void StartPowerUp()
+        {
+            base.StartPowerUp();
+            if(_currPowerUp == "") PlayerController.Instance.SetPowerUp("Coins", coinsMat);
+            PlayerController.Instance.ChangeCoinCollectorSize(sizeAmount);
+        }
+
+        protected override void EndPowerUp()
+        {
+            base.EndPowerUp();
+            PlayerController.Instance.SetPowerUp("", originalMat);
+            PlayerController.Instance.ChangeCoinCollectorSize(1);
+        }
+
+        protected override void FusionPowerUps()
+        {
+            base.FusionPowerUps();
+            if(_currPowerUp != null){
+
+                switch(_currPowerUp){
+                    case "Invencible":
+                        duration = fusionDur;
+                        PlayerController.Instance.SetPowerUp("Massive Coins", massiveCoinMat);
+
+                        Invoke(nameof(MassiveCoin), fusionDur - 1f);
+                        return;
+                }
+
+            }
+        }
+        #endregion
+
+
+        #region UNITY-METODOS
+
+        #endregion
     }
-
-    protected override void EndPowerUp()
-    {
-        base.EndPowerUp();
-        PlayerController.Instance.SetPowerUp("", originalMat);
-        PlayerController.Instance.ChangeCoinCollectorSize(1);
-    }
-    #endregion
-
-
-    #region UNITY-METODOS
-
-    #endregion
 }
+

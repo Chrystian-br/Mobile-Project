@@ -40,7 +40,7 @@ public class CollectableCoin : CollectableBase
 
                 if(Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
                 {
-                    Destroy(gameObject);
+                    if(PlayerController.Instance._currentPowerUp != "Massive Coins") Destroy(gameObject);
                 }
             }
         }

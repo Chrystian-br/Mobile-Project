@@ -16,22 +16,25 @@ public class PlayerController : Singleton<PlayerController>
         [Header("Movement")]
         public float speed = 1f;
 
-        public string tagEnemy = "Enemy";
-        public string tagEndLine = "EndLine";
+        [Header("Power Ups")]
         public TextMeshPro uiTextPowerUp;
         public bool invencible = false;
-
-        public GameObject positionController;
-
         public GameObject coinCollector;
 
+        [Header("Checks")]        
+        public string tagEnemy = "Enemy";
+        public string tagEndLine = "EndLine";
         public GameObject endScreen;
+        
+        public GameObject positionController;
+
         //privates
         private Vector3 _pos;
         private bool _canRun;
         private float _currentSpeed;
         private Vector3 _startPosition;
         [HideInInspector] public bool _canJump;
+        [HideInInspector] public string _currentPowerUp;
     #endregion
      
      
@@ -50,6 +53,7 @@ public class PlayerController : Singleton<PlayerController>
         #region POWER UPS
             public void SetPowerUp(string s, Material m)
             {
+                _currentPowerUp = s;
                 uiTextPowerUp.text = s;
                 gameObject.GetComponent<MeshRenderer>().material = m;
             }

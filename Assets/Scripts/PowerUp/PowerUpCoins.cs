@@ -42,7 +42,7 @@ namespace scripts.PowerUp.PowerUpCoins
                         PlayerController.Instance.SetPowerUp("Massive Coins", massiveCoinMat);
 
                         Invoke(nameof(MassiveCoin), fusionDur - 1f);
-                        return;
+                        break;
                 }
 
             }

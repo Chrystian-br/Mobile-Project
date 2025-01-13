@@ -25,6 +25,9 @@ public class PlayerController : Singleton<PlayerController>
         public string tagEnemy = "Enemy";
         public string tagEndLine = "EndLine";
         public GameObject endScreen;
+
+        [Header("Animation")]
+        public AnimatorManager animatorManager;
         
         public GameObject positionController;
 
@@ -42,12 +45,19 @@ public class PlayerController : Singleton<PlayerController>
         public void StartToRun()
         {
             _canRun = true;
+            animatorManager.Play(AnimatorManager.AnimationType.RUN);
         }
 
-        private void EndGame()
+        private void EndGame(AnimatorManager.AnimationType animationType)
         {
             _canRun = false;
+            animatorManager.Play(animationType);
             endScreen.SetActive(true);
+        }
+
+        private void MoveBack()
+        {
+            transform.DOMoveZ(-1f, .3f).SetRelative();
         }
 
         #region POWER UPS
@@ -120,7 +130,10 @@ public class PlayerController : Singleton<PlayerController>
         private void OnCollisionEnter(Collision collision)
         {
             if(collision.transform.tag == tagEnemy){
-                if(!invencible) EndGame();
+                if(!invencible) {
+                    EndGame(AnimatorManager.AnimationType.DEAD);
+                    MoveBack();
+                }
                 else Destroy(collision.gameObject);
             }
         }
@@ -128,7 +141,7 @@ public class PlayerController : Singleton<PlayerController>
         private void OnTriggerEnter(Collider other)
         {
             if(other.transform.tag == tagEndLine){
-                EndGame();
+                EndGame(AnimatorManager.AnimationType.IDLE);;
             }
         }
     #endregion

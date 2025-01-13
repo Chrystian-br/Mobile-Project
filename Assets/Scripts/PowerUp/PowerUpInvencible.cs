@@ -38,7 +38,7 @@ public class PowerUpInvencible : PowerUpBase
                         PlayerController.Instance.SetPowerUp("Massive Coins", massiveCoinMat);
 
                         Invoke(nameof(MassiveCoin), fusionDur - 2f);
-                        return;
+                        break;
                 }
             }
         }

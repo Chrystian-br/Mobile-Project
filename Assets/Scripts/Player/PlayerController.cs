@@ -38,6 +38,8 @@ public class PlayerController : Singleton<PlayerController>
         private Vector3 _startPosition;
         [HideInInspector] public bool _canJump;
         [HideInInspector] public string _currentPowerUp;
+        [HideInInspector] public string _secondPowerUp;
+        private float _baseSpeedToAnimation = 9f;
     #endregion
      
      
@@ -45,7 +47,7 @@ public class PlayerController : Singleton<PlayerController>
         public void StartToRun()
         {
             _canRun = true;
-            animatorManager.Play(AnimatorManager.AnimationType.RUN);
+            animatorManager.Play(AnimatorManager.AnimationType.RUN, _currentSpeed / _baseSpeedToAnimation);
         }
 
         private void EndGame(AnimatorManager.AnimationType animationType)

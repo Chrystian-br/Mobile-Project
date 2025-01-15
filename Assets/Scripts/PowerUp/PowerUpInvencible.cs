@@ -16,31 +16,22 @@ public class PowerUpInvencible : PowerUpBase
         {
             base.StartPowerUp();
             if(_currPowerUp == "") PlayerController.Instance.SetPowerUp("Invencible", invencibleMat);
+            else PlayerController.Instance._secondPowerUp = "Invencible";
+            
             PlayerController.Instance.SetInvencible(true);
         }
 
         protected override void EndPowerUp()
         {
-            base.EndPowerUp();
-            PlayerController.Instance.SetPowerUp("", originalMat);
-            PlayerController.Instance.SetInvencible(false);
-            
-        }
-
-        protected override void FusionPowerUps()
-        {
-            base.FusionPowerUps();
-            if(_currPowerUp != null){
-
-                switch(_currPowerUp){
-                    case "Coins":
-                        duration = fusionDur;
-                        PlayerController.Instance.SetPowerUp("Massive Coins", massiveCoinMat);
-
-                        Invoke(nameof(MassiveCoin), fusionDur - 2f);
-                        break;
-                }
+            if(PlayerController.Instance._currentPowerUp == "Invencible"){
+                base.EndPowerUp();
+                PlayerController.Instance.SetPowerUp("", originalMat);
+            } else if(PlayerController.Instance._currentPowerUp != "Massive Coins"){
+                PlayerController.Instance.SetInvencible(false);
             }
+
+            
+            
         }
     #endregion
 

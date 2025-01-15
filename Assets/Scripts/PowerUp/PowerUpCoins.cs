@@ -21,30 +21,20 @@ namespace scripts.PowerUp.PowerUpCoins
         {
             base.StartPowerUp();
             if(_currPowerUp == "") PlayerController.Instance.SetPowerUp("Coins", coinsMat);
+            else{
+                _secPowerUp = "Coins";
+                FusionPowerUps();
+            }
             PlayerController.Instance.ChangeCoinCollectorSize(sizeAmount);
         }
 
         protected override void EndPowerUp()
         {
-            base.EndPowerUp();
-            PlayerController.Instance.SetPowerUp("", originalMat);
-            PlayerController.Instance.ChangeCoinCollectorSize(1);
-        }
-
-        protected override void FusionPowerUps()
-        {
-            base.FusionPowerUps();
-            if(_currPowerUp != null){
-
-                switch(_currPowerUp){
-                    case "Invencible":
-                        duration = fusionDur;
-                        PlayerController.Instance.SetPowerUp("Massive Coins", massiveCoinMat);
-
-                        Invoke(nameof(MassiveCoin), fusionDur - 1f);
-                        break;
-                }
-
+            if(PlayerController.Instance._currentPowerUp == "Coins"){
+                base.EndPowerUp();
+                PlayerController.Instance.SetPowerUp("", originalMat);
+            } else if(PlayerController.Instance._currentPowerUp != "Massive Coins"){
+                PlayerController.Instance.ChangeCoinCollectorSize(1);
             }
         }
         #endregion

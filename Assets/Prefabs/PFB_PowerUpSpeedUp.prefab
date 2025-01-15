@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4264377312399414026}
   - component: {fileID: 7462088324644277361}
   - component: {fileID: 8035153431265289738}
+  - component: {fileID: 5221883870026160673}
   m_Layer: 0
   m_Name: PFB_PowerUpSpeedUp
   m_TagString: Untagged
@@ -75,9 +76,42 @@ MonoBehaviour:
   graphicItem: {fileID: 9187969509525017235}
   audioSource: {fileID: 0}
   duration: 2
+  fusionDur: 4
   originalMat: {fileID: 2100000, guid: 123bdac959f052b4f893f32a3202a82f, type: 2}
+  massiveCoinMat: {fileID: 0}
+  massiveShoot: {fileID: 0}
+  shootSpawn: {fileID: 0}
+  _currPowerUp: 
+  _secPowerUp: 
   amountToSpeed: 15
   speedUpMat: {fileID: 2100000, guid: c5c647e0cf5aa7a428b13e3531a82d64, type: 2}
+--- !u!114 &5221883870026160673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5961374228033485369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e54399c007c1d4b808135189d19025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compareTag: Player
+  animationCollectDelay: 0
+  timeToDestroy: 10
+  pSystem: {fileID: 0}
+  floor: {fileID: 0}
+  graphicItem: {fileID: 0}
+  audioSource: {fileID: 0}
+  duration: 2
+  fusionDur: 4
+  originalMat: {fileID: 0}
+  massiveCoinMat: {fileID: 0}
+  massiveShoot: {fileID: 0}
+  shootSpawn: {fileID: 0}
+  _currPowerUp: 
+  _secPowerUp: 
 --- !u!1 &9187969509525017235
 GameObject:
   m_ObjectHideFlags: 0

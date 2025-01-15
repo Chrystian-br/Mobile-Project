@@ -7,15 +7,10 @@ public class PowerUpBase : CollectableBase
     #region VARIAVEIS
         [Header("Power Up")]
         public float duration = 2f;
-        public float fusionDur = 4f;
         public Material originalMat;
 
-        public Material massiveCoinMat;
-        public GameObject massiveShoot;
-
-        public Transform shootSpawn;
-
         [HideInInspector] public string _currPowerUp;
+        [HideInInspector] public string _secPowerUp;
     #endregion
 
 
@@ -23,7 +18,6 @@ public class PowerUpBase : CollectableBase
     protected override void OnCollect()
     {
         base.OnCollect();
-        //PowerUpFusion.Instance.Fusion();
         FusionPowerUps();
         StartPowerUp();
     }
@@ -42,12 +36,10 @@ public class PowerUpBase : CollectableBase
     protected virtual void FusionPowerUps()
     {
         _currPowerUp = PlayerController.Instance._currentPowerUp;
+        _secPowerUp = PlayerController.Instance._secondPowerUp;
     }
 
-    protected virtual void MassiveCoin()
-    {
-        Instantiate(massiveShoot, PlayerController.Instance.transform.position, PlayerController.Instance.transform.rotation);
-    }
+    
     #endregion
 
 

@@ -22,7 +22,6 @@ public class MassiveShoot : MonoBehaviour
 
         private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("colidiu");
             if(collision.transform.CompareTag(compareTag)){
                 Destroy(collision.gameObject);
                 Destroy(gameObject);

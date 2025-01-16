@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpFusion : PowerUpBase
 {
     #region VARIAVEIS
-                public Material massiveCoinMat;
+            public Material massiveCoinMat;
             public GameObject massiveShoot;
     #endregion
      

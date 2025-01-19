@@ -101,6 +101,8 @@ public class LevelManager : MonoBehaviour
                 RandomLevelPiece(_currSetup.levelPiecesEnd);
                 yield return new WaitForSeconds(timeBetweenPieces);
             }
+
+            ColorManager.Instance.ChangeColorByType(_currSetup.artType);
         }
 
         private void CleanSpawnedPieces()

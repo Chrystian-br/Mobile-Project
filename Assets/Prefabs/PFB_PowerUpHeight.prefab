@@ -158,12 +158,8 @@ MonoBehaviour:
   floor: {fileID: 0}
   graphicItem: {fileID: 4359303803634136056}
   audioSource: {fileID: 0}
-  duration: 6
-  fusionDur: 4
+  duration: 4
   originalMat: {fileID: 2100000, guid: 123bdac959f052b4f893f32a3202a82f, type: 2}
-  massiveCoinMat: {fileID: 0}
-  massiveShoot: {fileID: 0}
-  shootSpawn: {fileID: 0}
   _currPowerUp: 
   _secPowerUp: 
   heightMat: {fileID: 2100000, guid: 393c11517be849d439c520c96685342c, type: 2}
@@ -190,10 +186,8 @@ MonoBehaviour:
   graphicItem: {fileID: 0}
   audioSource: {fileID: 0}
   duration: 2
-  fusionDur: 4
   originalMat: {fileID: 0}
-  massiveCoinMat: {fileID: 0}
-  massiveShoot: {fileID: 0}
-  shootSpawn: {fileID: 0}
   _currPowerUp: 
   _secPowerUp: 
+  massiveCoinMat: {fileID: 0}
+  massiveShoot: {fileID: 0}

@@ -122,5 +122,12 @@ public class LevelManager : MonoBehaviour
         {
             CreateLevelPieces();
         }
+
+        public void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.N)){
+                CreateLevelPieces();
+            }
+        }
     #endregion
 }

@@ -40,6 +40,7 @@ public class PlayerController : Singleton<PlayerController>
         [HideInInspector] public string _currentPowerUp;
         [HideInInspector] public string _secondPowerUp;
         private float _baseSpeedToAnimation = 9f;
+        [SerializeField] public BounceHelper bounceHelper;
     #endregion
      
      
@@ -60,6 +61,11 @@ public class PlayerController : Singleton<PlayerController>
         private void MoveBack()
         {
             transform.DOMoveZ(-1f, .3f).SetRelative();
+        }
+
+        public void Bounce()
+        {
+            bounceHelper.Bounce();
         }
 
         #region POWER UPS

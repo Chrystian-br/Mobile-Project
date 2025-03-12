@@ -17,8 +17,8 @@ public class CollectableCoin : CollectableBase
             base.OnCollect();
             coll.enabled = false;
             collect = true;
-            // PlayerController.Instance.Bounce();
             ItemsManager.Instance.AddCoins();
+            PlayerController.Instance.Bounce();
         }
 
         protected override void Collect()
@@ -30,7 +30,7 @@ public class CollectableCoin : CollectableBase
     #region UNITY-METODOS
         private void Start()
         {
-            // CoinsAnimationManager.Instance.RegisterCoin(this);
+            CoinsAnimationManager.Instance.RegisterCoin(this);
         }
 
         private void Update()

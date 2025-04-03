@@ -31,12 +31,17 @@ public class PlayerController : Singleton<PlayerController>
         
         public GameObject positionController;
 
+        [Header("VFX")]
+        public ParticleSystem pSystemKill;
+
+        [Header("Limits")]
+        public Vector2 limitVector = new Vector2(-11,-2);
+
         //privates
         private Vector3 _pos;
         private bool _canRun;
         private float _currentSpeed;
         private Vector3 _startPosition;
-        [HideInInspector] public bool _canJump;
         [HideInInspector] public string _currentPowerUp;
         [HideInInspector] public string _secondPowerUp;
         private float _baseSpeedToAnimation = 9f;
@@ -93,18 +98,12 @@ public class PlayerController : Singleton<PlayerController>
 
             public void ChangeHeight(float amount, float dur, float animDuration, Ease ease)
             {
-                positionController.GetComponent<Rigidbody>().useGravity = false;
-                _canJump = false;
-
                 positionController.transform.DOMoveY(_startPosition.y + amount, animDuration).SetEase(ease);
                 Invoke(nameof(ResetHeight), dur);
             }
 
             public void ResetHeight()
             {
-                positionController.GetComponent<Rigidbody>().useGravity = true;
-                _canJump = true;
-
                 positionController.transform.DOMoveY(_startPosition.y, .1f);
             }
 
@@ -131,6 +130,9 @@ public class PlayerController : Singleton<PlayerController>
             _pos = target.position;
             _pos.z = transform.position.z;
 
+            if(_pos.x < limitVector.x) _pos.x = limitVector.x;
+            else if(_pos.x > limitVector.y) _pos.x = limitVector.y;
+
             transform.position = Vector3.Lerp(transform.position, _pos, lerpVelocity * Time.deltaTime);
             transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
         }
@@ -141,6 +143,7 @@ public class PlayerController : Singleton<PlayerController>
                 if(!invencible) {
                     EndGame(AnimatorManager.AnimationType.DEAD);
                     MoveBack();
+                    pSystemKill.Play();
                 }
                 else Destroy(collision.gameObject);
             }

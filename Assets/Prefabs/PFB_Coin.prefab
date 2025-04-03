@@ -115,6 +115,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8191858068292720684}
+  - {fileID: 7200279175475209198}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &3572308245022882722
@@ -153,7 +154,7 @@ MonoBehaviour:
   compareTag: CoinCollector
   animationCollectDelay: 0
   timeToDestroy: 2
-  pSystem: {fileID: 0}
+  pSystem: {fileID: 4950639457221397450}
   floor: {fileID: 0}
   graphicItem: {fileID: 4104609088160868384}
   audioSource: {fileID: 0}
@@ -161,3 +162,42 @@ MonoBehaviour:
   collect: 0
   lerp: 10
   minDistance: 1
+--- !u!1001 &8768834576052369897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3912936206007335141}
+    m_Modifications:
+    - target: {fileID: 1899867395381795335, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 74.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899867395381795335, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -33.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899867395381795335, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 286.141
+      objectReference: {fileID: 0}
+    - target: {fileID: 7479243355302310343, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+      propertyPath: m_Name
+      value: PFB_CoinParticles
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+--- !u!198 &4950639457221397450 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4396952279022137891, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+  m_PrefabInstance: {fileID: 8768834576052369897}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7200279175475209198 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1899867395381795335, guid: f100afddc5158344e9b0a79b4e800edd, type: 3}
+  m_PrefabInstance: {fileID: 8768834576052369897}
+  m_PrefabAsset: {fileID: 0}

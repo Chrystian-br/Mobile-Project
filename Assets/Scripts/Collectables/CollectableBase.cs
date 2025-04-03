@@ -32,7 +32,10 @@ public class CollectableBase : MonoBehaviour
 
         protected virtual void OnCollect()
         {
-            if(pSystem != null) pSystem.Play();
+            if(pSystem != null){
+                pSystem.transform.SetParent(null);
+                pSystem.Play();
+            }
             if(audioSource != null) audioSource.Play();
         }
 
@@ -55,8 +58,7 @@ public class CollectableBase : MonoBehaviour
         private void Awake()
         {
             if(pSystem != null){
-                pSystem.transform.SetParent(null);
-                pSystem.collision.AddPlane(floor.transform);
+                //pSystem.collision.AddPlane(floor.transform);
             }
         }
     #endregion

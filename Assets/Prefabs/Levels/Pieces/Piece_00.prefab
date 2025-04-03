@@ -198,4 +198,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 1310692926883077195}
-  duration: 1
+  duration: 2
